@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.coolway.entity">
+    <!--    表-实体类映射-->
+    <class name="Subject" table="subject">
+        <!--        主键映射-->
+        <id name="sub_id" type="java.lang.Long">
+            <column name="sub_id"></column>
+            <generator class="native"></generator>
+        </id>
+        <!--        非主键映射-->
+        <property name="sub_name" type="java.lang.String">
+            <column name="sub_name" length="10"></column>
+        </property>
+        <!--关系映射-->
+        <many-to-one name="Teacher" column="sub_tea_id" class="Teacher"></many-to-one>
+    </class>
+</hibernate-mapping>

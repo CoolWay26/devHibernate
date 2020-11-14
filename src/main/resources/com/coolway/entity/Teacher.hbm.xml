@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.coolway.entity">
+<!--    表-实体类映射-->
+    <class name="Teacher" table="teacher">
+<!--        主键映射-->
+        <id name="id" type="java.lang.Long">
+            <column name="id"></column>
+            <generator class="native"></generator>
+        </id>
+<!--        非主键映射-->
+        <property name="idNum" type="java.lang.String">
+            <column name="idnum" length="8"></column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="8"></column>
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="age"></column>
+        </property>
+        <set name="setSub" cascade="all" inverse="true">
+            <key column="sub_tea_id"></key>
+            <one-to-many class="Subject"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
